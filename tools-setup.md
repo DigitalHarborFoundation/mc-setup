@@ -3,7 +3,7 @@
 ## Overview
 This document includes instructions for setting up a development environment for Python and MinecraftEDU on macOS. This is a series of steps pieced together from various sources. I was unable to find a specific set of instructions for integrating the Python Minecraft API with MinecraftEDU. I was able to piece together various tools and installations processes to make this environment work.
 
-Much of this guide is adapted from [this blog post](https://www.epiphanydigest.com/2016/03/07/learn-to-program-with-minecraft-on-ubuntu/). I converted much of it to work with MinecraftEDU.
+Much of this guide is adapted from [this blog post](https://www.epiphanydigest.com/2016/03/07/learn-to-program-with-minecraft-on-ubuntu/). I converted a lot of it to work with MinecraftEDU.
 
 For now, this is largely a series of steps to follow. More explanation will be included at a later point.
 
@@ -17,7 +17,9 @@ Here's a download link for the free edition.
 - Optional: Pin to the Dock.
 
 ## Minecraft Tools
-I grouped together all of the server tools that are needed in the environment. I packaged them into a zip folder.
+I grouped together all of the server tools that are needed in the environment. I packaged them into a zip folder. The reason for this is that you need the version of the Spigot server to match the version of Minecraft (just like with full Minecraft). MinecraftEDU works similarly.
+
+I tried to get the Python Minecraft API to interact with MinecreaftEDU's internal server, but ran into issues with Raspberry Juice. My solution was to pre-bundle all of these tools and then have the youth unpack the zip and run _start.sh_ from a terminal prompt to launch the server.
 
 - Download link for the tools: [Minecraft Tools Pack](http://dhf-website.s3.amazonaws.com/files/minecraft-tools.zip)
 - Download the .zip and move it from _Downloads_ to _Documents_.
@@ -34,6 +36,10 @@ While going through this process I encountered that there were several prerequis
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 - This process may take awhile. If you see lots of action in the Terminal window, Homebrew is installing correctly.
+- There are potentially some pauses in this process:
+    - Prompt for XCode Command Line Tools: Press ENTER and enter admin password.
+    - Prompt for XCode agreement: Read through agreement (advancing it with SPACE) and type 'agree' at end.
+    - Out of space for XCode: Computer needs additional space to install the XCode tools. Clear space and try again.
 
 ### Install Python3
 - The courses uses Python3, which may or may not be installed.
@@ -46,6 +52,7 @@ brew install python3
 ### Install Java
 **Note:** Only do this step if you're unable to run the _launcher.jar_ file. You'll receive an alert saying that there is no Java SDK to open the .jar file.
 
+- To check if this is necessary, type _which java_ in a terminal prompt. If you get a pathway as a response, Java is installed. Still run _launcher.jar_ to double check. If you can't run the file, or _which java_ doesn't return a pathway, move through the next steps.
 - Use Homebrew to install the latest Java SDK. This is needed to run MinecraftEDU.
 - Type the following into Terminal and press enter:
 ```bash
@@ -68,7 +75,7 @@ pip3 install ./py3minepi-master
 ```
 - The ./ is crucial! This installs this particular package from the current folder.
 
-Note: You may need to use **sudo** for this. If so, use sudo and enter an admin password.
+**Note:** You may need to use **sudo** for this. If so, use sudo and enter an admin password.
 
 ## Testing
 To test that the server is installed, run the following command in Terminal:
