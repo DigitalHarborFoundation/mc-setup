@@ -44,6 +44,8 @@ brew install python3
 - This will either install Python3, or verify that it's already installed. If you see "Warning: python3 3.6.1 is already installed" then your system already has the latest version of Python3.
 
 ### Install Java
+**Note:** Only do this step if you're unable to run the _launcher.jar_ file. You'll receive an alert saying that there is no Java SDK to open the .jar file.
+
 - Use Homebrew to install the latest Java SDK. This is needed to run MinecraftEDU.
 - Type the following into Terminal and press enter:
 ```bash
@@ -51,8 +53,7 @@ brew cask install java
 ```
 
 ### Minecraft API
-
-- At this point, navigate to the **minecraft-tools** folder that you made in your _Documents_ folder.
+- At this point, navigate to the **minecraft-tools** folder that you made in your _Documents_ folder. If you didn't download it previously, refer to the link at the top of the guide.
 - The following series of instructions require you to be inside this directory. The installation won't work if you're not!
 - Open a Terminal prompt, and navigate to this file location by typing the following:
 
