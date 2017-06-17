@@ -19,6 +19,8 @@ Here's a download link for the free edition.
 ## Minecraft Tools
 I grouped together all of the server tools that are needed in the environment. I packaged them into a zip folder. The reason for this is that you need the version of the Spigot server to match the version of Minecraft (just like with full Minecraft). MinecraftEDU works similarly.
 
+The server settings that I preset (creative mode and support for offline mode) are stored in the provided _server.properties_ file. If you need to modify this, open this file with any text editor and change the values.
+
 I tried to get the Python Minecraft API to interact with MinecreaftEDU's internal server, but ran into issues with Raspberry Juice. My solution was to pre-bundle all of these tools and then have the youth unpack the zip and run _start.sh_ from a terminal prompt to launch the server.
 
 - Download link for the tools: [Minecraft Tools Pack](http://dhf-website.s3.amazonaws.com/files/minecraft-tools.zip)
@@ -31,7 +33,6 @@ While going through this process I encountered that there were several prerequis
 ### Install Homebrew
 - Install the Homebrew package manager. Check out their install page here: [Homebrew install](https://brew.sh/)
 - Open _Terminal_ and enter the following code into the command prompt:
-
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
@@ -41,13 +42,15 @@ While going through this process I encountered that there were several prerequis
     - Prompt for XCode agreement: Read through agreement (advancing it with SPACE) and type 'agree' at end.
     - Out of space for XCode: Computer needs additional space to install the XCode tools. Clear space and try again.
 
-### Install Python3
-- The courses uses Python3, which may or may not be installed.
+### Install Python 3
+- The courses uses Python 3, which may or may not be installed.
 - Open Terminal and enter the following command:
+-
 ```bash
 brew install python3
 ```
-- This will either install Python3, or verify that it's already installed. If you see "Warning: python3 3.6.1 is already installed" then your system already has the latest version of Python3.
+
+- This will either install Python 3, or verify that it's already installed. If you see "Warning: python3 3.6.1 is already installed" then your system already has the latest version of Python3.
 
 ### Install Java
 **Note:** Only do this step if you're unable to run the _launcher.jar_ file. You'll receive an alert saying that there is no Java SDK to open the .jar file.
@@ -55,6 +58,7 @@ brew install python3
 - To check if this is necessary, type _which java_ in a terminal prompt. If you get a pathway as a response, Java is installed. Still run _launcher.jar_ to double check. If you can't run the file, or _which java_ doesn't return a pathway, move through the next steps.
 - Use Homebrew to install the latest Java SDK. This is needed to run MinecraftEDU.
 - Type the following into Terminal and press enter:
+-
 ```bash
 brew cask install java
 ```
